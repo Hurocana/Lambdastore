@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="D:\Лабы\Курсовой проект\css\header.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Nunito);
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body { 
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+}
+
+h1 {
+    margin-top: -200px;
+    background-color: rgba(80, 80, 80, 0.57);
+    justify-content: center;
+    padding: 20px;
+    height: 600px;
+    text-align: center; /* добавляем выравнивание по центру */
+}
+
+
+p {
+    background-color: rgba(80, 80, 80, 0.57);
+  font-size: 140%;
+  line-height: 150%;
+  color: rgb(255, 255, 255);
+}
+
+.slide {
+    
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style: inherit;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 5px;
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 50% 50% / cover;  
+}
+
+.slide header {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+#title {
+  background-image: url("main.webp");
+  z-index:2;
+  color: rgb(255, 255, 255);
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateX(100%);
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#title h1 {
+ transform: translateZ(.25px) scale(.75);
+ transform-origin: 50% 100%;
+
+}
+
+#slide1:before {
+  background-image: url("2.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url("3.jpg");
+  z-index:2;
+}
+
+#slide3:before {
+  background-image: url("4.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background-color: rgb(62, 62, 62);
+}
+#overlay {
+  position: fixed;
+  top: 70px;
+  left: 60px;
+  width: 50%;
+  height: 50%;
+  border-style: outset;
+  border-right: #222;
+  border-top: #222;
+  background-color: rgba(128, 128, 128, 0.5);
+  
+}
+
+#buyButton {
+    z-index:2;
+    padding: 10px;
+  margin-top: 20px;
+  
+  height: 30px;
+  background-color: #FF4136;
+  color: #ffffff;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  transition: background-color 0.3s ease;
+}
+.buyButton {
+    font-size: 50px;
+}
+
+
+#errorMessage {
+  display: none;
+  position: fixed;
+  top: -190px;
+  right: -350px;
+  background-color: rgba(255, 0, 0, 0.558);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  animation-name: slideInError;
+  animation-duration: 0.5s;
+}
+
+@keyframes slideInError {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    
+  }
+}
+#prodinform {
+   margin-top: 200px; 
+}
+#buyButton:hover  {
+  
+  background-color: #ff4036a9;
+}
+#buyButton:active {
+    background-color: #4b4b4b57;
+}
+#prodinfodate {
+    margin-top: 40px;
+}
+.zagolovokdate {
+    color: #d6d6d6;
+}
+video {
+  width: 1080px;
+ 
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+p {
+  font-size: 15px;
+}
+.title {
+  width: auto;
+}
+}
+    </style>
+</head>
+<body>
+    
+      
+    <header>
+        <div class="navbar">
+          <a href="#" class="logo">Логотип</a>
+          <div class="menu-btn">
+            <div class="burger"></div>
+          </div>
+          <ul class="menu">
+            <li><a href="#">Поиск</a></li>
+            <li><a href="#">Гарантии</a></li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#">Личный кабинет</a></li>
+            <li><a href="#">Корзина</a></li>
+          </ul>
+        </div>
+      </header>
+      
+
+    <div id="title" class="slide header">
+        <div id="gamebg"></div>
+        <h1>ELDEN RING
+            <div id="buyButton">Купить</div>
+            <div id="prodinfodate"><span class="zagolovokdate">ДАТА ВЫХОДА</span>:
+                
+              25 фев. 2022<br>
+                <span class="zagolovokdate">РАЗРАБОТЧИК</span>:
+                
+FromSoftware Inc.<br>
+                <span class="zagolovokdate">ИЗДАТЕЛЬ</span>:
+                
+                FromSoftware Inc., Bandai Namco Entertainmento</div>
+            <div id="prodinform">
+                Подробная информация ниже</div>
+                <div id="errorMessage">Товар не добавлен в корзину!</div>
+            
+           <script>
+            const buyButton = document.getElementById("buyButton");
+const errorMessage = document.getElementById("errorMessage");
+
+buyButton.addEventListener("click", function() {
+  errorMessage.style.display = "block";
+  setTimeout(function() {
+    errorMessage.style.display = "none";
+  }, 3000);
+});
+
+
+           </script>
+        </h1>
+    </div>
+       
+      </div>
+    
+      
+      
+      
+      <div id="slide1" class="slide">
+        <div class="title">
+         
+          <p id="desc1">• Огромный захватывающий мир<br><br>
+            Огромный мир с открытыми полями, множеством ситуаций и гигантскими подземельями, где сложные трёхмерные конструкции сочетаются воедино. Путешествуйте, преодолевайте смертельные опасности и радуйтесь успехам.
+        </p>
+        </div>
+      </div>
+      
+      <div id="slide2" class="slide">
+        <div class="title">
+          
+          <p id="desc2">• Уникальный сетевой режим, приближающий вас к другим игрокам
+            Помимо многопользовательского режима, в котором вы напрямую подключаетесь к другим игрокам и путешествуете вместе, есть асинхронный сетевой режим, позволяющий ощутить присутствие других игроков.
+        </p>
+        </div>
+        
+      </div>
+      
+      <div id="slide3" class="slide">
+        <div class="title">
+        
+          <p id="desc3">Заключите самый важный контракт в своей жизни и найдите Дитя Предназначения, ключ к спасению или гибели этого мира.<br>
+            • Посреди войны отыщите Дитя Предназначения, живое оружие немыслимой силы, появление которого было предсказано в старинных легендах эльфов.<br>
+            • Боритесь с жестокими правителями, дикими духами и скрытыми угрозами — ведь все вокруг одержимы идеей захватить мир!<br>
+            • Станьте хозяином своей судьбы в этом мире... который, вероятно, даже не стоит спасать.</p>
+        </div>
+      </div>
+      
+      <div id="slide4" class="slide">
+        <div class="title">
+          <video controls>
+            <source src="https://cdn.cloudflare.steamstatic.com/steam/apps/256920688/movie480_vp9.webm?t=1670976352" type="video/mp4">
+          </video>
+          
+        </div>
+      </div>
+      <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const menu = document.querySelector('.menu');
+        const burger = document.querySelector('.burger');
+        
+        menuBtn.addEventListener('click', () => {
+          menu.classList.toggle('active');
+          burger.classList.toggle('active');
+        });
+        </script>
+</body>
+</html>

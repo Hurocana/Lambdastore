@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda Store</title>
+    <style>
+
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+body { 
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+}
+
+       header {
+  background-color: rgb(51, 51, 51);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  color: #f00;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.burger {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 6px 0;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-btn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #f00;
+    z-index: 1;
+  }
+
+  .menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+  }
+
+  .burger.active {
+    transform: rotate(90deg);
+  }
+  
+}
+.product-icon {
+  width: 150px;
+  height: 90px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product {
+    background-color: rgba(61, 61, 61, 0.334);
+    margin: 10px;
+    padding: 5px;
+    width: 250px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ddd;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    margin-bottom: 0;
+  }
+  html, body {
+  height: 100%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+          <a href="#" class="logo">Логотип</a>
+          <div class="menu-btn">
+            <div class="burger"></div>
+          </div>
+          <ul class="menu">
+            <li><a href="#">Поиск</a></li>
+            <li><a href="#">Гарантии</a></li>
+            <li><a id="selectedlist" href="#">Каталог</a></li>
+            <li><a href="support.html">Помощь</a></li>
+            <li><a href="#">Личный кабинет</a></li>
+            <li><a href="#">Корзина</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="products">
+        <div class="product">
+          <h3>Counter Strike 2</h3>
+          <div class="product-details">
+            <img src="games/cs2/main.jpg" alt="CS2" class="product-icon">
+            <p class="price">$19.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        
+        <div class="product">
+          <h3>The Witcher 3</h3>
+          <div class="product-details">
+            <img src="games/witcher3/icon.jpg" alt="Witcher 3" class="product-icon">
+            <p class="price">$29.99</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+        
+        <!-- Добавьте здесь любое количество других товаров -->
+        
+      </div>
+      <footer>
+        <div class="contacts">
+          <p>Email: <a href="mailto:andrusovich6@gmail.com">andrusovich6@gmail.com</a></p>
+          <p>Telegram: <a href="https://t.me/bedrockoff">@bedrockoff</a></p>
+          <p>VK: <a href="https://vk.com/bedrockoff">@bedrockoff</a></p>
+          <p>Phone: <a href="tel:+375295331720">+375 (29) 533-17-20</a></p>
+        </div>
+      </footer>
+      
+      
+      
+      
+      
+          
+</body>
+</html>
