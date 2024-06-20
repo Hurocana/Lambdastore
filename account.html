@@ -10,6 +10,33 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
+:root {
+  --main-text-color: #ffffff;
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+
+  --text-input-background-gradient-left: #242424;
+  --text-input-background-gradient-right: #000000;
+}
+
+[data-theme="light"] {
+  --main-text-color: #2e2e2e;
+  --main-background-gradient-top: #9b9b9b;
+  --main-background-gradient-bottom: #747474;
+
+  --text-input-background-gradient-left: #dddddd;
+  --text-input-background-gradient-right: #d8d8d8;
+}
+
+[data-theme="dark"] {
+  --main-text-color: #ffffff;
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+
+  --text-input-background-gradient-left: #242424;
+  --text-input-background-gradient-right: #000000;
+}
+
 body { 
   margin:0;
   padding:0;
@@ -21,7 +48,7 @@ body {
   font-family: Nunito;
 }
 body {
-    background: linear-gradient(to bottom, #000000, #960606);
+    background: linear-gradient(to bottom, var(--main-background-gradient-top), var(--main-background-gradient-bottom));
     background-size: 100% 200%;
     background-attachment: fixed;
     animation: gradient 10s ease infinite;
@@ -77,7 +104,7 @@ body {
     border-radius: 5px;
     border: none;
     color: white;
-    background: linear-gradient(to right, #242424, #000000);
+    background: linear-gradient(to right, var(--text-input-background-gradient-left), var(--text-input-background-gradient-right));
 
 
   }
@@ -102,7 +129,7 @@ body {
   font-weight: bold;
   text-decoration: underline red;
 }
-li:hover{
+#menu-hoverable:hover{
     transform: scale(1.15);
     color: #aeaeae;
 }
@@ -234,12 +261,25 @@ form{
         
       </div>
       <ul class="menu">
-        <li id="searchplace"><a>Поиск: </a><input type="text" id="search" name="search"></li>
-        
-        <li><a href="main.html">Главная</a></li>
-        <li><a  href="support.html">Помощь</a></li>
-        <li><a id="selectedlist" href="#">Личный кабинет</a></li>
-        <li><a href="cart.html">Корзина</a></li>
+        <a id="theme-switcher-text">Сменить тему</a>
+        <div class="theme-switch-wrapper">
+          <li id="theme-switcher">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox"/>
+                <div class="slider round"></div>
+            </label>
+          </li>
+        </div>
+
+        <li id="searchplace">
+          <a>Поиск: </a>
+          <input type="text" id="search" name="search">
+        </li>
+      
+        <li id="menu-hoverable"><a href="main.html">Главная</a></li>
+        <li id="menu-hoverable"><a href="support.html">Помощь</a></li>
+        <li id="menu-hoverable"><a id="selectedlist" href="#" >Личный кабинет</a></li>
+        <li id="menu-hoverable"><a href="cart.html">Корзина</a></li>
       </ul>
     </div>
   </header>
@@ -268,6 +308,6 @@ form{
       
       
       <script src="js/burger.js"></script>
-          
+      <script src="js/theme.js"></script>
 </body>
 </html>

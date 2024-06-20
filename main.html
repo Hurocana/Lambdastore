@@ -11,6 +11,18 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
+:root {
+  --background-color: rgba(230,230,230,0.697);
+}
+
+[data-theme="light"] {
+  --background-color: rgba(230,230,230,0.697);
+}
+
+[data-theme="dark"] {
+  --background-color: rgba(8,8,8,0.697);
+}
+
 body { 
   margin:0;
   padding:0;
@@ -26,7 +38,7 @@ body {
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #f5f5f53c;
+        background-color: rgba(0,0,0,0);
         text-align: center;
         padding: 10px;
     }
@@ -40,25 +52,24 @@ body {
         flex-direction: column;
     }
     
-    #footer {
+    /* #footer {
         background-color: #8909093f;
         text-align: center;
         padding: 10px;
-    }
+    } */
 
 
     </style>
 </head>
 <body>
     <header>
-        <div class="navbar">
-          <a href="#" class="logo"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-           
-            
-            <svg
+      <div class="navbar">
+        <a href="#" class="logo"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+              
+          <svg
                version="1.0"
-               width="70"
+               width="100"
                height="70"
                id="svg2"
                sodipodi:docname="lambda.svg"
@@ -143,21 +154,33 @@ body {
                    sodipodi:role="line"
                    id="tspan571"
                    style="stroke-width:2.5"
-                   x="74.838364"
+                   x="90.838364"
                    y="31.086706">STORE</tspan></text>
             </svg>
-            
             </a>
           <div class="menu-btn">Меню</div>
             
           </div>
           <ul class="menu">
-            <li id="searchplace"><a>Поиск: </a><input type="text" id="search" name="search"></li>
-            
-            <li><a id="selectedlist" href="#">Главная</a></li>
-            <li><a href="support.html">Помощь</a></li>
-            <li><a href="account.html">Личный кабинет</a></li>
-            <li><a href="cart.html">Корзина</a></li>
+            <a id="theme-switcher-text">Сменить тему</a>
+            <div class="theme-switch-wrapper">
+              <li id="theme-switcher">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox"/>
+                    <div class="slider round"></div>
+                </label>
+              </li>
+            </div>
+
+            <li id="searchplace">
+              <a>Поиск: </a>
+              <input type="text" id="search" name="search">
+            </li>
+          
+            <li id="menu-hoverable"><a id="main.html" href="#">Главная</a></li>
+            <li id="menu-hoverable"><a href="support.html">Помощь</a></li>
+            <li id="menu-hoverable"><a href="account.html">Личный кабинет</a></li>
+            <li id="menu-hoverable"><a href="cart.html">Корзина</a></li>
           </ul>
         </div>
       </header>
@@ -172,7 +195,7 @@ body {
           </div>
         </div>
         <div class="product">
-          <h3>CYBERPUNK 2077</h3>
+          <h3><a href="games/cp2077/pagetest.html ">CYBERPUNK 2077</a></h3>
           <div class="product-details">
             <img  href="games/witcher3/pagetest.html" src="games/cp2077/main.jfif" alt="Witcher 3" class="product-icon">
             <p class="price">$9.99</p>
@@ -180,7 +203,7 @@ body {
           </div>
         </div>
         <div class="product">
-          <h3>The Witcher 3</h3>
+          <h3><a href="games/witcher3/pagetest.html">The Witcher 3</a></h3>
           <div class="product-details">
             <img  href="games/witcher3/pagetest.html" src="games/witcher3/main.jpeg" alt="Witcher 3" class="product-icon">
             <p class="price">$3.99</p>
@@ -188,7 +211,7 @@ body {
           </div>
         </div>
         <div class="product">
-            <h3>ELDEN RING</h3>
+            <h3><a href="games/eldaring/pagetest.html">ELDEN RING</a></h3>
             <div class="product-details">
               <img href="games/witcher3/pagetest.html" src="games/eldaring/main.webp" alt="Witcher 3" class="product-icon">
               <p class="price">$29.99</p>
@@ -196,7 +219,7 @@ body {
             </div>
           </div>
           <div class="product">
-            <h3>Spider-Man: Miles Morales</h3>
+            <h3><a href="games/smmiles/pagetest.html">Spider-Man: Miles Morales</a></h3>
             <div class="product-details">
               <img  href="games/witcher3/pagetest.html" src="games/smmiles/main.webp" alt="Witcher 3" class="product-icon">
               <p class="price">$29.99</p>
@@ -212,39 +235,7 @@ body {
                <a class="button">Добавить в корзину</a>
             </div>
           </div>
-         
-          <div class="product">
-            <h3>The Witcher 3</h3>
-            <div class="product-details">
-              <img  href="games/witcher3/pagetest.html" src="games/witcher3/main.jpeg" alt="Witcher 3" class="product-icon">
-              <p class="price">$3.99</p>
-              <a id="buyButton" class="button">Добавить в корзину</a>
-            </div>
-          </div>
-          <div class="product">
-            <h3>The Witcher 3</h3>
-            <div class="product-details">
-              <img  href="games/witcher3/pagetest.html" src="games/witcher3/main.jpeg" alt="Witcher 3" class="product-icon">
-              <p class="price">$3.99</p>
-              <a id="buyButton" class="button">Добавить в корзину</a>
-            </div>
-          </div>
-          <div class="product">
-            <h3>The Witcher 3</h3>
-            <div class="product-details">
-              <img  href="games/witcher3/pagetest.html" src="games/witcher3/main.jpeg" alt="Witcher 3" class="product-icon">
-              <p class="price">$3.99</p>
-              <a id="buyButton" class="button">Добавить в корзину</a>
-            </div>
-          </div>
-          <div class="product">
-            <h3>The Witcher 3</h3>
-            <div class="product-details">
-              <img  href="games/witcher3/pagetest.html" src="games/witcher3/main.jpeg" alt="Witcher 3" class="product-icon">
-              <p class="price">$3.99</p>
-              <a id="buyButton" class="button">Добавить в корзину</a>
-            </div>
-          </div>
+
         <!-- Товары на будущее -->
         
       </div>
@@ -262,6 +253,7 @@ body {
       <script src="js/burger.js"></script>
       <script src="js/buypage.js"></script>
       <script src="js/xmlparser.js"></script>
+      <script src="js/theme.js"></script>
           
 </body>
 </html>

@@ -1,14 +1,44 @@
+:root {
+  --main-text-color: #ffffff;
+
+  --product-background-color: rgba(8, 8, 8, 0.697);
+  --product-price-background-color: rgba(1, 214, 1, 0.681);
+  --product-add-to-cart-background-color: #f44336;
+
+
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+  
+  --footer-background-color: rgba(221, 221, 221, 0.303);
+}
+
+[data-theme="light"] {
+  --main-text-color: #2e2e2e;
+  --main-background-gradient-top: #bebebe;
+  --main-background-gradient-bottom: #acacac;
+  --product-background-color: rgba(230, 230, 230, 0.697);
+  --footer-background-color: rgba(230, 230, 230, 0.697);
+}
+
+[data-theme="dark"] {
+  --main-text-color: #ffffff;
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+  --product-background-color: rgba(8, 8, 8, 0.697);
+  --footer-background-color: rgba(8, 8, 8, 0.697);
+}
+
 .product-icon {
     width: 150px;
     height: 90px;
-    border: #ff0000 5px;
+    border: #00ff15 5px;
     border-radius: 5px;
   }
 a:active, /* активная/посещенная ссылка */
 a:hover,  /* при наведении */
 a{
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--product-name-color-linkable);
   }
   .products {
     display: flex;
@@ -17,7 +47,7 @@ a{
     flex: 1;
   }
   .product {
-      background-color: rgba(8, 8, 8, 0.697);
+      background-color: var(--product-background-color);
       margin: 10px;
       padding: 5px;
       width: 250px;
@@ -64,21 +94,22 @@ a{
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: rgba(221, 221, 221, 0.303);
+      background-color: var(--footer-background-color);
       text-align: center;
       font-size: 12px;
       padding: 10px 0;
       margin-bottom: 0;
+      color: var(--main-text-color)
     }
     html, body {
     height: 100%;
    
   }
   body {
-    background: linear-gradient(to bottom, #000000, #960606);
+    background: linear-gradient(to bottom, var(--main-background-gradient-top), var(--main-background-gradient-bottom));
     background-size: 100% 200%;
     background-attachment: fixed;
-    animation: gradient 10s ease infinite;
+    /* animation: gradient 10s ease infinite; */
   }
   
   @keyframes gradient {
@@ -93,15 +124,13 @@ a{
     }
   }
   
-  
-  
   .product .button {
     display: inline-block;
     text-decoration: none;
     border-radius: 4px;
-    background-color: #f44336;
+    background-color: var(--product-add-to-cart-background-color);
     border: none;
-    color: #FFFFFF;
+    color: var(--main-text-color);
     text-align: center;
     font-size: 18px;
     padding: 10px;
@@ -113,23 +142,23 @@ a{
   }
   
   .product button:hover {
-      background-color: #f4433689;
-    color: #333333;
+      background-color: #b5c9df89;
+      color: #333333;
   }
   
   .product button:active {
-    background-color: #4444445d;
+    background-color: #cd11115b;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     transform: translateY(2px);
   }
   .price {
-      background-color: rgba(1, 214, 1, 0.681);
-      color: white;
+      background-color: var(--product-price-background-color);
+      color: var(--main-text-color);
       margin-left: 75px;
       margin-right: 75px;
       border-radius: 5px;
       text-decoration: bold;
   }
   h3 {
-  color:  white;
+    color: var(--main-text-color);
   }

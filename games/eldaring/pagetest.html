@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="D:\Лабы\Курсовой проект\css\header.css">
+    <link rel="stylesheet" href="/./css/header.css">
+    
     <style>
         @import url(https://fonts.googleapis.com/css?family=Nunito);
 
@@ -186,30 +187,6 @@ img:last-of-type {
     font-size: 50px;
 }
 
-
-#errorMessage {
-  display: none;
-  position: fixed;
-  top: -190px;
-  right: -350px;
-  background-color: rgba(255, 0, 0, 0.558);
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  animation-name: slideInError;
-  animation-duration: 0.5s;
-}
-
-@keyframes slideInError {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    
-  }
-}
 #prodinform {
    margin-top: 200px; 
 }
@@ -227,18 +204,52 @@ img:last-of-type {
     color: #d6d6d6;
 }
 video {
-  width: 1080px;
+  width: 650px;
  
   object-fit: cover;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
 p {
   font-size: 15px;
 }
 .title {
   width: auto;
 }
+video {
+  display: block;
+  margin: 0 auto;
 }
+#errorMessage {
+  display: none;
+  position: fixed;
+  top: -150px;
+  right: 0px;
+  background-color: rgba(255, 0, 0, 0.558);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  animation-name: slideInError;
+  animation-duration: 0.5s;
+}
+@keyframes slideInError {
+  from {
+   
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    
+  }
+  
+}
+@media screen and (max-width: 820px) {
+  video {
+    display: block;
+    width: 300px;
+  }
+}
+}
+
     </style>
 </head>
 <body>
@@ -247,7 +258,7 @@ p {
     <header>
         <div class="navbar">
           <a href="#" class="logo">Логотип</a>
-          <div class="menu-btn">
+          <div class="menu-btn">Button</div>
             <div class="burger"></div>
           </div>
           <ul class="menu">
@@ -262,7 +273,7 @@ p {
       </header>
       
 
-    <div id="title" class="slide header">
+      <div id="title" class="slide header">
         <div id="gamebg"></div>
         <h1>ELDEN RING
             <div id="buyButton">Купить</div>

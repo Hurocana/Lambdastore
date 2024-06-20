@@ -4,27 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/header.css">
     <title>Lambda Store</title>
+    <link rel="stylesheet" href="css/header.css">
     <style>
 
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
+:root {
+  --main-text-color: #ffffff;
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+}
+
+[data-theme="light"] {
+  --main-text-color: #2e2e2e;
+  --main-background-gradient-top: #9b9b9b;
+  --main-background-gradient-bottom: #747474;
+}
+
+[data-theme="dark"] {
+  --main-text-color: #ffffff;
+  --main-background-gradient-top: #1b1b1b;
+  --main-background-gradient-bottom: #222222;
+}
+
 body { 
   margin:0;
   padding:0;
-	
+	perspective: 1px;
+	transform-style: preserve-3d;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   font-family: Nunito;
 }
 body {
-    background: linear-gradient(to bottom, #000000, #960606);
-    
+    background: linear-gradient(to bottom, var(--main-background-gradient-top), var(--main-background-gradient-bottom));
+    background-size: 100% 200%;
     background-attachment: fixed;
     animation: gradient 10s ease infinite;
-    font-family: Nunito;
   }
   
   @keyframes gradient {
@@ -38,22 +56,96 @@ body {
       background-position: 0% 0%;
     }
   }
-  #supportbuts{
-    align-items: center;
-    text-align: center;
-  }
-  @media screen and (max-width: 820px) {
-  #supportbuts{
+
+
+  html, body {
+  height: 100%;
+}
+.container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
     
   }
-  button{
-    margin-top: 20px;
+  
+  form {
+    background-color: rgba(8, 8, 8, 0.697);
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
   }
   
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
   }
+  
+  .field[type="text"],
+  .field[type="email"],
+  .field[type="password"] {
+    display: block;
+    width: 370px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, #242424, #000000);
 
+
+  }
+  
+  button {
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background-color: #c50000;
+    transform: translateY(-3px);
+  }
+  
+#selectedlist {
+  font-weight: bold;
+  text-decoration: underline red;
+}
+#menu-hoverable:hover{
+    transform: scale(1.15);
+    color: #aeaeae;
+}
+li{
+    transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width: 820px) {
+form{
+  width: 300px;
+}
+.field[type="text"],
+  .field[type="email"],
+  .field[type="password"] {
+    display: block;
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, #242424, #000000);
+
+
+  }
+}
 
     </style>
 </head>
@@ -160,151 +252,184 @@ body {
         
       </div>
       <ul class="menu">
-        <li id="searchplace"><a>Поиск: </a><input type="text" id="search" name="search"></li>
-        
-        <li><a href="main.html">Главная</a></li>
-        <li><a id="selectedlist" href="#">Помощь</a></li>
-        <li><a href="account.html">Личный кабинет</a></li>
-        <li><a href="cart.html">Корзина</a></li>
+        <a id="theme-switcher-text">Сменить тему</a>
+        <div class="theme-switch-wrapper">
+          <li id="theme-switcher">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox"/>
+                <div class="slider round"></div>
+            </label>
+          </li>
+        </div>
+
+        <li id="searchplace">
+          <a>Поиск: </a>
+          <input type="text" id="search" name="search">
+        </li>
+      
+        <li id="menu-hoverable"><a href="main.html">Главная</a></li>
+        <li id="menu-hoverable"><a id="selectedlist" href="#">Помощь</a></li>
+        <li id="menu-hoverable"><a href="account.html" >Личный кабинет</a></li>
+        <li id="menu-hoverable"><a href="cart.html">Корзина</a></li>
       </ul>
     </div>
   </header>
-      
-<div id="supportbuts">
-<button onclick="openModal('contact-modal')">Связаться с нами</button>
-<button onclick="openModal('faq-modal')">Часто задаваемые вопросы</button>
-</div>
-<div id="contact-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('contact-modal')">&times;</span>
-    <h3>Связаться с нами</h3>
-    <p>Введите свое имя:</p>
-    <input type="text">
-    <p>Введите свой email:</p>
-    <input type="email">
-    <p>Введите свое сообщение:</p>
-    <textarea></textarea>
-    <br><br>
-    <button>Отправить</button>
-  </div>
-</div>
-
-<div id="faq-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('faq-modal')">&times;</span>
-    <h3>Часто задаваемые вопросы</h3>
-    <p>Здесь будут ответы на часто задаваемые вопросы.</p>
-  </div>
-</div>
-
-<script>
-function openModal(modalId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = "block";
-}
-
-function closeModal(modalId) {
-  var modal = document.getElementById(modalId);
-  modal.style.display = "none";
-}
-
-// Закрываем модальное окно, если пользователь кликает за его пределами
-window.onclick = function(event) {
-  var modals = document.getElementsByClassName("modal");
-  for (var i = 0; i < modals.length; i++) {
-    if (event.target == modals[i]) {
-      modals[i].style.display = "none";
+     
+  <div id="supportbuts">
+    <button onclick="openModal('contact-modal')">Связаться с нами</button>
+    <button onclick="openModal('faq-modal')">Часто задаваемые вопросы</button>
+    </div>
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('contact-modal')">&times;</span>
+        <h3>Связаться с нами</h3>
+        <p>Введите свое имя:</p>
+        <input type="text">
+        <p>Введите свой email:</p>
+        <input type="email">
+        <p>Введите свое сообщение:</p>
+        <textarea></textarea>
+        <br><br>
+        <button>Отправить</button>
+      </div>
+    </div>
+    
+    <div id="faq-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('faq-modal')">&times;</span>
+        <h3>Часто задаваемые вопросы</h3>
+        <p>Здесь будут ответы на часто задаваемые вопросы.</p>
+      </div>
+    </div>
+    
+    <script>
+    function openModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "block";
     }
+    
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "none";
+    }
+    
+    // Закрываем модальное окно, если пользователь кликает за его пределами
+    window.onclick = function(event) {
+      var modals = document.getElementsByClassName("modal");
+      for (var i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+          modals[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+    
+    <style>
+      :root {
+      --text-color: #fff;
+    }
+    
+      [data-theme="light"] {
+        --text-color: #2e2e2e;
+    } 
+
+    [data-theme="dark"] {
+      --text-color: #fff;
+    }
+      h2{
+        text-align: center;
+        color: white;
+      }
+    .modal {
+      
+      text-align: center;
+      display: none;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      
+    }
+
+    #supportbuts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      
   }
-}
-</script>
-
-<style>
-  h2{
-    text-align: center;
-    color: white;
-  }
-.modal {
-  
-  text-align: center;
-  display: none;
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  
-}
-
-.modal-content {
-  background-color: rgba(8, 8, 8, 0.697);
-  border-radius: 5px;
-  z-index: 2;
-  margin: 15% auto;
-  padding: 20px;
-
-  width: 80%;
-}
-p {
-  color: white;
-}
-.close {
-  color: rgb(255, 255, 255);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-button {
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    margin-right: 10px;
-  }
-  
-  button:hover {
-    background-color: #c50000;
-    transform: translateY(-3px);
-  }
-  
-
-
-  
-  textarea{
-    width: 200px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background: linear-gradient(to right, #242424, #000000);
-
-  }
-  h3{
-    color: white;
-  }
-</style>
-
+    
+    .modal-content {
+      background-color: rgba(8, 8, 8, 0.697);
+      border-radius: 5px;
+      z-index: 2;
+      margin: 15% auto;
+      padding: 20px;
+    
+      width: 80%;
+    }
+    p {
+      color: white;
+    }
+    .close {
+      color: rgb(255, 255, 255);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    button {
+        background-color: #f00;
+        color: var(--text-color);
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        margin-right: 10px;
+      }
+      
+      button:hover {
+        background-color: #c50000;
+        transform: translateY(-3px);
+      }
+      
+      textarea{
+        width: 200px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background: linear-gradient(to right, #242424, #000000);
+    
+      }
+      h3{
+        color: white;
+      }
+    </style>
+      <!-- <footer>
+        <div class="contacts">
+          <p>Email: <a href="mailto:andrusovich6@gmail.com">andrusovich6@gmail.com</a></p>
+          <p>Telegram: <a href="https://t.me/bedrockoff">@bedrockoff</a></p>
+          <p>VK: <a href="https://vk.com/bedrockoff">@bedrockoff</a></p>
+          <p>Phone: <a href="tel:+375295331720">+375 (29) 533-17-20</a></p>
+        </div>
+      </footer> -->
       
       
       
       
-      
-      
-      
-<script src="js/burger.js"></script>  
-      
+      <script src="js/burger.js"></script>
+      <script src="js/theme.js"></script>
 </body>
 </html>
